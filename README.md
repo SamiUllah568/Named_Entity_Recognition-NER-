@@ -2,7 +2,7 @@
 
 This is a Flask-based web application that performs Named Entity Recognition (NER) on uploaded text files using spaCy.
 
-![NER App](web demo.png)
+![NER App](https://github.com/SamiUllah568/Named_Entity_Recognition-NER-/blob/main/static/images/web%20demo.png)
 
 ## Features
 
