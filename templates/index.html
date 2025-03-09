@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Named Entity Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result-container {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .result-container h3 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .result-text {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 15px;
+            color: #444;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+        .entities {
+            margin-top: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Named Entity Recognition (NER) App</h1>
+
+        <form action="/entity" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload a Text File</label>
+            <br>
+            <input type="file" name="file" id="file" class="form-control" required>
+            <br><br>
+            <button type="submit">Analyze Entities</button>
+        </form>       
+
+        {% if html and text %}
+        <div class="result-container">
+            <h3>Original Text</h3>
+            <div class="result-text">{{ text }}</div>
+
+            <h3>Named Entities</h3>
+            <div class="entities">{{ html|safe }}</div>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
